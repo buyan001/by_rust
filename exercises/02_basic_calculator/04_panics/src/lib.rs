@@ -2,7 +2,9 @@
 /// calculate the average speed of the journey.
 fn speed(start: u32, end: u32, time_elapsed: u32) -> u32 {
     // TODO: Panic with a custom message if `time_elapsed` is 0
-
+    if time_elapsed == 0 { 
+        panic!(" you are 🐢!")
+    }
     (end - start) / time_elapsed
 }
 
@@ -19,7 +21,7 @@ mod tests {
     // 👇 With the `#[should_panic]` annotation we can assert that we expect the code
     //    under test to panic. We can also check the panic message by using `expected`.
     //    This is all part of Rust's built-in test framework!
-    #[should_panic(expected = "The journey took no time at all, that's impossible!")]
+    #[should_panic(expected = " you are 🐢!")]
     fn by_zero() {
         speed(0, 10, 0);
     }

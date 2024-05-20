@@ -1,9 +1,11 @@
 pub fn factorial(n: u32) -> u32 {
-    let mut result = 1;
+    let mut result: u32 = 1;
     for i in 1..=n {
         // Use saturating multiplication to stop at the maximum value of u32
         // rather than overflowing and wrapping around
-        result *= i;
+//before:        result *= i;
+//after: 
+        result = result.saturating_mul(i);
     }
     result
 }
@@ -14,7 +16,8 @@ mod tests {
 
     #[test]
     fn twentieth() {
-        assert_eq!(factorial(20), u32::MAX);
+// error         assert_eq!(factorial(20).saturating_add(1u32), u32::MAX);
+        assert_eq!(factorial(20), u32::MAX);   
     }
 
     #[test]

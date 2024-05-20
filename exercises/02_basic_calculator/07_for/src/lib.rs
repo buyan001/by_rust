@@ -1,6 +1,13 @@
+use core::net;
+
 // Rewrite the factorial function using a `for` loop.
 pub fn factorial(n: u32) -> u32 {
-    todo!()
+    let mut result  = 1;
+    for i in 1..=n { 
+        result *= i;
+    }
+    result
+
 }
 
 #[cfg(test)]
@@ -24,6 +31,6 @@ mod tests {
 
     #[test]
     fn fifth() {
-        assert_eq!(factorial(5), 120);
+        assert_eq!(factorial(20), 120);
     }
 }
